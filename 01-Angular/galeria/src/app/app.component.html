@@ -1,11 +1,52 @@
-<h1 class="rojo">Titulo {{title}}</h1>
-<!-- Interpolation -->
-<app-item-galeria
-nombreItem= "Papitas"
-textoBoton = "A lo Bestia"
-></app-item-galeria>
+<h1 [class]="claseTitulo">Titulo {{title}}</h1>
+<!-- {{interpolacion}}
 
-<app-item-galeria
-nombreItem= "Carnitas"
-textoBoton = "Gorditas"
-></app-item-galeria>
+<pre>
+    {{_carritoService.carritoCompras | json}}
+</pre>
+
+<button (click)="mostrar(true)">Mostrar</button>
+
+<button (click)="mostrar(false)">Ocultar</button>
+
+<div *ngIf="estaMostrando">
+  <app-item-galeria
+    *ngFor="let flor of arregloFloresJs"
+    [titulo]="flor.titulo"
+    [textoBoton]="flor.nombre"
+    [nombreItem]="flor.descripcion"
+    [notas]="flor.notas"
+    (cambioChela)="cambioChela($event)"
+    (cambioCerveza)="cambioCerveza($event)"
+  >
+  </app-item-galeria>
+</div>
+-->
+<div class="contenedor">
+  <div class="row">
+    <div class="col-sm-3">
+      Titulo
+    </div>
+    <div class="col-sm-6 texto-derecha">
+      <div class="item-menu">Menu</div>
+      <div class="item-menu">Inicio</div>
+      <div class="item-menu">Peliculas</div>
+      <div class="item-menu">Tienda</div>
+      <div class="item-menu">Dc</div>
+      <div class="item-menu">Marvel</div>
+    </div>
+    <div class="col-sm-3">
+      Login
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      Listas
+    </div>
+    <div class="col-sm-9">
+      Contenido
+    </div>
+  </div>
+  <div class="row">3</div>
+  <div class="row">4</div>
+</div>
