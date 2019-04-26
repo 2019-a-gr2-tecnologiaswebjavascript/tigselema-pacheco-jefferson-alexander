@@ -2,3 +2,37 @@
 .rojo{
     color: red;
 }
+.contenedor{
+  padding: 40px;
+  margin: 40px;
+  border: 5px black solid;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.item-menu{
+  color: darkblue;
+  margin: 10px;
+  border: solid white 2px;
+  float: left
+
+}
+
+.item-menu:hover{
+  color: white;
+  background-color: darkblue;
+  margin: 10px;
+  cursor: pointer;
+  border: grey solid 2px;
+  transform: scale(1.1,1);
+}
+
+.texto-derecha{
+  text-align: right;
+}
+
+body{
+  font-family: Open Sans, sans-serif;
+}
