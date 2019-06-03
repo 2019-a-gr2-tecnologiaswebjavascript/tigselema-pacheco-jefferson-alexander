@@ -1,22 +1,22 @@
-import {NgModule} from "@angular/core";
-import {Routes, RouterModule} from "@angular/router";
-import {ActorListarComponent} from "./actor-listar/actor-listar.component";
-import {ActorCrearComponent} from "./actor-crear/actor-crear.component";
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {ActorListarComponent} from './actor-listar/actor-listar.component';
+import {ActorCrearComponent} from './actor-crear/actor-crear.component';
 
-const routes:Routes = [
+const routes: Routes = [
   {
-    path:'listar',
+    path: 'listar',
     component: ActorListarComponent
   },
   {
-    path:'crear',
+    path: 'crear',
     component: ActorCrearComponent
-  }
-]
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 
-export class ActorRoutingModule{}
+export class ActorRoutingModule {}

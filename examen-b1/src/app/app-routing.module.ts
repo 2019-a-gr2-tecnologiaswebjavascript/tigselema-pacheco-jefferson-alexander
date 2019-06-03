@@ -14,6 +14,10 @@ const routes: Routes = [
     component: MenuComponent
   },
   {
+    path: 'actor',
+    loadChildren: './modulos/actor/actor.module#ActorModule'
+  },
+  {
     path: '',
     redirectTo: 'inicio',
     pathMatch: 'full'

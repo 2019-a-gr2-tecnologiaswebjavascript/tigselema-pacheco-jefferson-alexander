@@ -8,6 +8,8 @@ import { NoEncontradaComponent } from './componentes/no-encontrada/no-encontrada
 import {MatInputModule} from "@angular/material";
 import { MenuComponent } from './componentes/menu/menu.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {PeliculaModule} from "./modulos/pelicula/pelicula.module";
+import {ActorModule} from "./modulos/actor/actor.module";
 
 @NgModule({
   declarations: [
@@ -19,8 +21,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    ActorModule,
     MatInputModule,
-    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
