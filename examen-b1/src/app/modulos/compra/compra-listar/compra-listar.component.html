@@ -1,3 +1,36 @@
-<p>
-  compra-listar works!
-</p>
+<div class="container">
+  <h1>Revisar Compras</h1>
+  <form (ngSubmit)="busqueda()">
+  <div class="row separacion">
+    <div class="col-sm-8">
+      <input type="text" placeholder="Buscar" class="btn-block" [(ngModel)]="buscar" name="buscar">
+    </div>
+    <div class="col-sm-4">
+      <button type="submit" class="btn btn-block btn-success">Buscar</button>
+    </div>
+  </div>
+  </form>
+
+  <div class="row separacion">
+    <div class="col-sm-12">
+      <p-table [value]="compras" autoLayout="true">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Cajero</th>
+            <th>Total</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-compra>
+          <tr>
+            <td>{{compra.nombre}}</td>
+            <td>{{compra.correo}}</td>
+            <td>{{compra.cajero}}</td>
+            <td>{{compra.total}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

@@ -5,7 +5,8 @@ import { CompraCrearComponent } from './compra-crear/compra-crear.component';
 import {CompraRoutingModule} from "./compra-routing.module";
 import {MatInputModule} from "@angular/material";
 import {FormsModule} from "@angular/forms";
-import {AutenticacionService} from "../../service/autenticacion.service";
+import {CompraService} from "../../service/compra.service";
+import {TableModule} from "primeng/table";
 
 @NgModule({
   declarations: [CompraListarComponent, CompraCrearComponent],
@@ -13,10 +14,11 @@ import {AutenticacionService} from "../../service/autenticacion.service";
     CommonModule,
     CompraRoutingModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    TableModule
   ],
   providers:[
-    AutenticacionService
+  CompraService
   ]
 })
 export class CompraModule { }

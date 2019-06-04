@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8">
-      <form #f="ngForm" (ngSubmit)="crearPelicula()">
+      <form #f="ngForm" (ngSubmit)="crearCompra(compra)">
         <mat-form-field class="example-full-width separacion-input">
           <input matInput [(ngModel)]="compra.nombre" type="text" placeholder="Nombre Persona" name="nombre">
         </mat-form-field>
@@ -35,7 +35,8 @@
       </form>
     </div>
     <div class="col-sm-4">
-      <b>Cajero {{_autenticacionService.cajero}}</b>
+      <b>Cajero</b> {{cajero}}<br>
+      <b>Total</b> {{sacarTotal()}}
         <div *ngFor="let pelicula of peliculas">
           <div class="item btn-block">
             <button class="btn btn-success" (click)="addPelicula(pelicula)">+</button>

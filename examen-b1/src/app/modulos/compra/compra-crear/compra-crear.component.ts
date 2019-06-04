@@ -4,7 +4,9 @@ import {PeliculaService} from "../../../service/pelicula.service";
 import {PeliculaInterface} from "../../../interfaces/pelicula.interface";
 import {Router} from "@angular/router";
 import {ActorService} from "../../../service/actor.service";
-import {AutenticacionService} from "../../../service/autenticacion.service";
+import {CookieService} from "ngx-cookie-service";
+import {CompraService} from "../../../service/compra.service";
+
 
 @Component({
   selector: 'app-compra-crear',
@@ -15,16 +17,19 @@ export class CompraCrearComponent implements OnInit {
   compra: CompraInterface = {
     productos: []
   }
+  cajero
   peliculas: PeliculaInterface[] = []
   constructor(
     private readonly _peliculaService: PeliculaService,
     private readonly _router: Router,
     private readonly _actorService: ActorService,
-    private readonly _autenticacionService: AutenticacionService
+    private readonly _cookieService:CookieService,
+    private readonly _compraService:CompraService
   ) { }
 
   ngOnInit() {
     this.peliculas = this._peliculaService.obtenerTodosTodos()
+    this.cajero = this._cookieService.get('cajero')
   }
 
   irMenu(){
@@ -53,6 +58,20 @@ export class CompraCrearComponent implements OnInit {
     }else{
       this.compra.productos.splice(indice,indice+1)
     }
+  }
+
+  sacarTotal(){
+    let total = 0
+    this.compra.productos.forEach(value=>{
+      total+= value.cantidad
+    })
+    return total
+  }
+
+  crearCompra(compra:CompraInterface){
+    compra.cajero= this.cajero
+    compra.total = this.sacarTotal()
+    this._compraService.crear(compra)
   }
 
 }
