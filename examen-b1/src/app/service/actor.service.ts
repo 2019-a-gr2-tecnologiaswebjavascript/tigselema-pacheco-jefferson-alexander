@@ -1,9 +1,10 @@
 import {Injectable} from "@angular/core";
 import {ActorInterface} from "../interfaces/actor.interface";
+import {actor} from "../constantes/database";
 
 @Injectable()
 export class ActorService{
-  actor:ActorInterface[]=[]
+  actor = actor
 
   obtenerTodos(){
     return this.actor
@@ -15,11 +16,9 @@ export class ActorService{
     })
   }
 
-  eliminar(id:number){
-    const idActorABorrar = this.actor.find(value=>{
-      return value.idActor==id
-    }).idActor
-    return this.actor.splice(idActorABorrar-1,idActorABorrar)
+  eliminar(actor: ActorInterface){
+    const indiceActor = this.actor.indexOf(actor)
+    return this.actor.splice(indiceActor,indiceActor+1)
   }
 
   crear(actor: ActorInterface){

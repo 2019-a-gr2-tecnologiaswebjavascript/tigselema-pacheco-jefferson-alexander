@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {InicioComponent} from "./componentes/inicio/inicio.component";
 import {NoEncontradaComponent} from "./componentes/no-encontrada/no-encontrada.component";
 import {MenuComponent} from "./componentes/menu/menu.component";
+import {ExisteCajeroGuard} from "./guards/existe-cajero.guard";
 
 const routes: Routes = [
   {
@@ -11,11 +12,18 @@ const routes: Routes = [
   },
   {
     path: 'menu',
-    component: MenuComponent
+    component: MenuComponent,
+    canActivate: [ExisteCajeroGuard]
   },
   {
     path: 'actor',
-    loadChildren: './modulos/actor/actor.module#ActorModule'
+    loadChildren: './modulos/actor/actor.module#ActorModule',
+    canActivate: [ExisteCajeroGuard]
+  },
+  {
+    path: 'comprar',
+    loadChildren: './modulos/compra/compra.module#CompraModule',
+    canActivate: [ExisteCajeroGuard]
   },
   {
     path: '',

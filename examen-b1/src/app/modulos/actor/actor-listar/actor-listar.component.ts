@@ -35,11 +35,11 @@ export class ActorListarComponent implements OnInit {
   }
 
   irPeliculasXActor(idActor: number){
-    this._router.navigate(['/actor','1','pelicula','listar'])
+    this._router.navigate(['/actor',idActor,'pelicula','listar'])
   }
 
-  eliminarActor(idActor:number){
-    this._actorService.eliminar(idActor)
+  eliminarActor(actor: ActorInterface){
+    this._actorService.eliminar(actor)
     this.actores= this._actorService.obtenerTodos()
   }
 

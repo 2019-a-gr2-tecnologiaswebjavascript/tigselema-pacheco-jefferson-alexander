@@ -6,7 +6,7 @@
     </div>
     <div class="col-sm-4">
       <button class="btn btn-block btn-success">Buscar</button>
-      <button class="btn btn-block btn-secondary">Crear</button>
+      <button class="btn btn-block btn-secondary" (click)="irACrearHijo()">Crear</button>
     </div>
   </div>
 
@@ -29,7 +29,7 @@
             <td>{{pelicula.rating}}</td>
             <td>{{pelicula.actoresPrincipales}}</td>
             <td>
-              <button class="btn btn-block btn-danger">Eliminar</button>
+              <button class="btn btn-block btn-danger" (click)="eliminarPelicula(pelicula)">Eliminar</button>
             </td>
           </tr>
         </ng-template>

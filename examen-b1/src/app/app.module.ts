@@ -10,6 +10,10 @@ import { MenuComponent } from './componentes/menu/menu.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {PeliculaModule} from "./modulos/pelicula/pelicula.module";
 import {ActorModule} from "./modulos/actor/actor.module";
+import {CompraModule} from "./modulos/compra/compra.module";
+import {ExisteCajeroGuard} from "./guards/existe-cajero.guard";
+import {FormsModule} from "@angular/forms";
+import {AutenticacionService} from "./service/autenticacion.service";
 
 @NgModule({
   declarations: [
@@ -24,8 +28,13 @@ import {ActorModule} from "./modulos/actor/actor.module";
     BrowserAnimationsModule,
     ActorModule,
     MatInputModule,
+    CompraModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    ExisteCajeroGuard,
+    AutenticacionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

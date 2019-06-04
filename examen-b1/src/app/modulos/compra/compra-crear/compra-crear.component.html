@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <form #f="ngForm" (ngSubmit)="crearPelicula()">
+        <mat-form-field class="example-full-width separacion-input">
+          <input matInput [(ngModel)]="compra.nombre" type="text" placeholder="Nombre Persona" name="nombre">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width separacion-input">
+          <input matInput [(ngModel)]="compra.cedula" type="cedula" placeholder="Cedula Persona" name="cedula">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width separacion-input">
+          <input matInput [(ngModel)]="compra.direccion" type="text" placeholder="Direccion Persona" name="direccion">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width separacion-input">
+          <input matInput [(ngModel)]="compra.telefono"  type="text" placeholder="Telefono Persona" name="telefono">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width btn-block">
+          <input matInput [(ngModel)]="compra.correo"  type="text" placeholder="Correo Persona" name="correo">
+        </mat-form-field>
+
+
+        <div *ngFor="let pelicula of compra.productos">
+            <div class="item btn-block">
+              <button type="button" class="btn btn-danger" (click)="sacarPelicula(pelicula)">-</button>
+              {{_actorService.obtenerPorId(pelicula.actorId).nombres}}/{{pelicula.nombre}}/{{pelicula.cantidad}}
+            </div>
+        </div>
+
+        <button type="submit" [disabled]="!f.valid" class="btn btn-block btn-success">Crear</button>
+        <button type="button" class="btn btn-block btn-info" (click)="irMenu()">Cancelar</button>
+      </form>
+    </div>
+    <div class="col-sm-4">
+      <b>Cajero {{_autenticacionService.cajero}}</b>
+        <div *ngFor="let pelicula of peliculas">
+          <div class="item btn-block">
+            <button class="btn btn-success" (click)="addPelicula(pelicula)">+</button>
+            {{_actorService.obtenerPorId(pelicula.actorId).nombres}}/{{pelicula.nombre}}
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

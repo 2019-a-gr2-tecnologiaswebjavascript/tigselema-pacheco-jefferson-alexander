@@ -19,4 +19,12 @@ export class MenuComponent implements OnInit {
     this._router.navigate(['/actor','listar'])
   }
 
+  irRevisarCompras(){
+    this._router.navigate(['/comprar','listar'])
+  }
+
+  irCompras(){
+    this._router.navigate(['/comprar','crear'])
+  }
+
 }

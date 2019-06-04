@@ -6,5 +6,6 @@ export interface PeliculaInterface {
   anioLanzamiento?: number
   rating?: number
   actoresPrincipales?: string
+  cantidad?:number
   actorId?: number | ActorInterface
 }

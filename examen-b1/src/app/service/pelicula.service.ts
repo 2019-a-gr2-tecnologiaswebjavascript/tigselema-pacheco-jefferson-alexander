@@ -1,15 +1,22 @@
 import {Injectable} from "@angular/core";
 import {PeliculaInterface} from "../interfaces/pelicula.interface";
+import {peliculas} from "../constantes/database";
 
 
 @Injectable()
 export class PeliculaService{
-  peliculas: PeliculaInterface[] = []
+  peliculas = peliculas
 
   obtenerTodos(id:number){
+      console.log(this.peliculas)
     return this.peliculas.filter(value=>{
       return value.actorId == id
     })
+  }
+
+  obtenerTodosTodos(){
+    console.log(this.peliculas)
+    return this.peliculas
   }
 
   obtenerPorId(id:number){
@@ -18,8 +25,9 @@ export class PeliculaService{
     })
   }
 
-  eliminar(id:number){
-    return this.peliculas.splice(id,id+1)
+  eliminar(pelicula: PeliculaInterface){
+    const indicePelicula = this.peliculas.indexOf(pelicula)
+    return this.peliculas.splice(indicePelicula,indicePelicula+1)
   }
 
   obtenerPorIdActor(idActor:number){

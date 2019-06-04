@@ -1,3 +1,29 @@
-<p>
-  pelicula-crear works!
-</p>
+<div class="container">
+  <h1>Crear Película</h1>
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <form #f="ngForm" (ngSubmit)="crearPelicula()">
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="pelicula.nombre" type="text" placeholder="Nombres Pelicula" name="nombre">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="pelicula.anioLanzamiento" type="number" placeholder="Año de Lanzamiento Pelicula" name="anioLanzamiento">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="pelicula.rating" type="number" placeholder="Rating Pelicula" name="rating">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="pelicula.actoresPrincipales"  type="text" placeholder="Actores Principales" name="actoresPrincipales">
+        </mat-form-field>
+
+        <button type="submit" [disabled]="!f.valid" class="btn btn-block btn-success">Crear</button>
+        <button type="button" class="btn btn-block btn-info" (click)="irAdministrarHijos()">Cancelar</button>
+      </form>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+</div>

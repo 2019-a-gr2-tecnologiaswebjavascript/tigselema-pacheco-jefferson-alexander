@@ -5,6 +5,8 @@ import { PeliculaListarComponent } from './pelicula-listar/pelicula-listar.compo
 import { PeliculaCrearComponent } from './pelicula-crear/pelicula-crear.component';
 import {PeliculaRoutingModule} from "./pelicula-routing.module";
 import { TableModule } from 'primeng/table';
+import {MatInputModule} from "@angular/material";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { TableModule } from 'primeng/table';
   imports: [
     CommonModule,
     PeliculaRoutingModule,
-    TableModule
+    TableModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [
     PeliculaService
