@@ -1,15 +1,16 @@
 <div class="container">
   <h1>Gestion de Grupos</h1>
+  <form (ngSubmit)="busqueda()">
   <div class="row separacion">
     <div class="col-sm-8">
-      <input type="text" placeholder="Buscar" class="btn-block">
+      <input type="text" placeholder="Buscar" class="btn-block" [(ngModel)]="buscar" name="buscar">
     </div>
     <div class="col-sm-4">
-      <button class="btn btn-block btn-success">Buscar</button>
+      <button type="submit" class="btn btn-block btn-success">Buscar</button>
       <button class="btn btn-block btn-secondary" (click)="irACrearHijo()">Crear</button>
     </div>
   </div>
-
+  </form>
   <div class="row separacion">
     <div class="col-sm-12">
       <p-table [value]="peliculas" autoLayout="true">

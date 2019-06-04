@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {AutenticacionService} from "../../service/autenticacion.service";
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'app-inicio',
@@ -12,14 +12,14 @@ export class InicioComponent implements OnInit {
 
   constructor(
     private readonly _router: Router,
-    private readonly _autenticacionService: AutenticacionService
+    private readonly _cookieService: CookieService
   ) { }
 
   ngOnInit() {
   }
 
   irAMenu(){
-    this._autenticacionService.setearCajero(this.nombre)
+    this._cookieService.set("cajero", this.nombre)
     this._router.navigate(['/menu'])
   }
 

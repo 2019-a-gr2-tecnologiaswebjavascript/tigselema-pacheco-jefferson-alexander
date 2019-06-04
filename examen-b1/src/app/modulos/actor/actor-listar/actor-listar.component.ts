@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./actor-listar.component.css']
 })
 export class ActorListarComponent implements OnInit {
-
+  buscar:string
   actores:ActorInterface[]
 
   constructor(
@@ -41,6 +41,10 @@ export class ActorListarComponent implements OnInit {
   eliminarActor(actor: ActorInterface){
     this._actorService.eliminar(actor)
     this.actores= this._actorService.obtenerTodos()
+  }
+
+  buscarActorPorNombre(){
+   this.actores= this._actorService.busqueda(this.buscar)
   }
 
 

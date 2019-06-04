@@ -12,5 +12,17 @@ export class CompraService{
     this.compras.push(compra)
   }
 
+  obtenerTodos(){
+    return this.compras
+  }
+  busqueda(nombre:string){
+    if(nombre.length>2)
+      return this.compras.filter(compras=>{
+        return compras.nombre.includes(nombre)
+      })
+    else
+      return this.compras
+  }
+
 
 }

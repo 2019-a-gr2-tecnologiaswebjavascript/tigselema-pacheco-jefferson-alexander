@@ -13,7 +13,8 @@ import {ActorModule} from "./modulos/actor/actor.module";
 import {CompraModule} from "./modulos/compra/compra.module";
 import {ExisteCajeroGuard} from "./guards/existe-cajero.guard";
 import {FormsModule} from "@angular/forms";
-import {AutenticacionService} from "./service/autenticacion.service";
+import {CookieService} from "ngx-cookie-service";
+
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import {AutenticacionService} from "./service/autenticacion.service";
   ],
   providers: [
     ExisteCajeroGuard,
-    AutenticacionService
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

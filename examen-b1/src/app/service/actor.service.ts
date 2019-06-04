@@ -26,4 +26,13 @@ export class ActorService{
     return this.actor.push(actor)
   }
 
+  busqueda(nombre:string){
+    if(nombre.length>2)
+    return this.actor.filter(actor=>{
+      return actor.nombres.includes(nombre)
+    })
+    else
+      return this.actor
+  }
+
 }

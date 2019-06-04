@@ -7,5 +7,6 @@ export interface PeliculaInterface {
   rating?: number
   actoresPrincipales?: string
   cantidad?:number
+  total?:number
   actorId?: number | ActorInterface
 }

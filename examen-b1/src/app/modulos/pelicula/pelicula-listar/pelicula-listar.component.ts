@@ -10,6 +10,7 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
   styleUrls: ['./pelicula-listar.component.css']
 })
 export class PeliculaListarComponent implements OnInit {
+  buscar:string;
   peliculas: PeliculaInterface[] = []
   idActor: number
 
@@ -50,5 +51,9 @@ export class PeliculaListarComponent implements OnInit {
     this._activatedRoute.params.subscribe(parametros=>{
       this._router.navigate(['/actor',parametros.id,'pelicula','crear'])
     })
+  }
+
+  busqueda(){
+    this.peliculas = this._peliculaService.busqueda(this.buscar)
   }
 }

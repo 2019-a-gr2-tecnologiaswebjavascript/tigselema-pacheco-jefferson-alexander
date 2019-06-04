@@ -8,14 +8,12 @@ export class PeliculaService{
   peliculas = peliculas
 
   obtenerTodos(id:number){
-      console.log(this.peliculas)
     return this.peliculas.filter(value=>{
       return value.actorId == id
     })
   }
 
   obtenerTodosTodos(){
-    console.log(this.peliculas)
     return this.peliculas
   }
 
@@ -39,5 +37,14 @@ export class PeliculaService{
   crear(pelicula: PeliculaInterface){
     pelicula.idPelicula = this.peliculas[this.peliculas.length-1] ? this.peliculas[this.peliculas.length-1].idPelicula+1:1
     return this.peliculas.push(pelicula)
+  }
+
+  busqueda(nombre:string){
+    if(nombre.length>1)
+    return this.peliculas.filter(pelicula=>{
+      return pelicula.nombre.includes(nombre)
+    })
+    else
+      return this.peliculas
   }
 }
