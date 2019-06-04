@@ -23,15 +23,6 @@ export class PeliculaListarComponent implements OnInit {
   ngOnInit() {
     this._activatedRoute.params.subscribe(parametros=>{
       this.idActor=parametros.id
-      // const peliculaTemporal: PeliculaInterface = {
-      //   nombre: 'Inception',
-      //   anioLanzamiento: 2012,
-      //   rating: 5,
-      //   actoresPrincipales:'Leo DiCaprio',
-      //   actorId: parametros.id
-      // }
-      //
-      // this._peliculaService.crear(peliculaTemporal)
       this.peliculas = this._peliculaService.obtenerTodos(parametros.id);
     })
   }

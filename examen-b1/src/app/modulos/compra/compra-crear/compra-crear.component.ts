@@ -72,6 +72,7 @@ export class CompraCrearComponent implements OnInit {
     compra.cajero= this.cajero
     compra.total = this.sacarTotal()
     this._compraService.crear(compra)
+    this.irMenu()
   }
 
 }
