@@ -6,8 +6,10 @@ import {PeliculaInterface} from "../interfaces/pelicula.interface";
 export class PeliculaService{
   peliculas: PeliculaInterface[] = []
 
-  obtenerTodos(a:number, b:number){
-    return this.peliculas.slice(a,b)
+  obtenerTodos(id:number){
+    return this.peliculas.filter(value=>{
+      return value.actorId == id
+    })
   }
 
   obtenerPorId(id:number){
@@ -24,5 +26,10 @@ export class PeliculaService{
     return this.peliculas.find(value =>{
       return value.actorId==idActor
     } )
+  }
+
+  crear(pelicula: PeliculaInterface){
+    pelicula.idPelicula = this.peliculas[this.peliculas.length-1] ? this.peliculas[this.peliculas.length-1].idPelicula+1:1
+    return this.peliculas.push(pelicula)
   }
 }

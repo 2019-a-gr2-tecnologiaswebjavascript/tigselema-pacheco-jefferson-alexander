@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActorInterface} from "../../../interfaces/actor.interface";
 import {ActorService} from "../../../service/actor.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-actor-listar',
@@ -12,7 +13,8 @@ export class ActorListarComponent implements OnInit {
   actores:ActorInterface[]
 
   constructor(
-    private readonly _actorService: ActorService
+    private readonly _actorService: ActorService,
+    private readonly _router: Router
   ) { }
 
   ngOnInit() {
@@ -27,5 +29,19 @@ export class ActorListarComponent implements OnInit {
     this._actorService.crear(actorTemporal)
     this.actores= this._actorService.obtenerTodos()
   }
+
+  irCrearActor(){
+    this._router.navigate(['/actor','crear'])
+  }
+
+  irPeliculasXActor(idActor: number){
+    this._router.navigate(['/actor','1','pelicula','listar'])
+  }
+
+  eliminarActor(idActor:number){
+    this._actorService.eliminar(idActor)
+    this.actores= this._actorService.obtenerTodos()
+  }
+
 
 }

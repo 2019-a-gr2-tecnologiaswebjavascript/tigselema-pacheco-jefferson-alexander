@@ -12,6 +12,10 @@ const routes: Routes = [
     path: 'crear',
     component: ActorCrearComponent
   },
+  {
+    path: ':id/pelicula',
+    loadChildren: '../pelicula/pelicula.module#PeliculaModule'
+  }
 ];
 
 @NgModule({

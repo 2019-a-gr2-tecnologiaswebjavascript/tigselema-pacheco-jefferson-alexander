@@ -16,10 +16,14 @@ export class ActorService{
   }
 
   eliminar(id:number){
-    return this.actor.splice(id,id+1)
+    const idActorABorrar = this.actor.find(value=>{
+      return value.idActor==id
+    }).idActor
+    return this.actor.splice(idActorABorrar-1,idActorABorrar)
   }
 
   crear(actor: ActorInterface){
+    actor.idActor =this.actor[this.actor.length-1] ?  this.actor[this.actor.length-1].idActor+1:1
     return this.actor.push(actor)
   }
 

@@ -11,6 +11,11 @@ const routes: Routes= [
   {
     path:'crear',
     component: PeliculaCrearComponent
+  },
+  {
+    path: '',
+    redirectTo: 'listar',
+    pathMatch: 'full'
   }
 ]
 @NgModule(
